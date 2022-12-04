@@ -1,0 +1,25 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+# TODO could come up with a way of having different configs per dir, see ideas here:
+# https://github.com/pre-commit/pre-commit/issues/466
+# https://github.com/pre-commit/pre-commit/issues/731#issuecomment-376945745
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.0.1
+  hooks:
+  - id: trailing-whitespace
+    exclude: '.bumpversion.cfg'
+  - id: end-of-file-fixer
+    exclude: '.bumpversion.cfg'
+  - id: check-added-large-files
+  - id: check-yaml
+    exclude: 'conformed_map.yml'
+- repo: https://github.com/psf/black
+  rev: 22.6.0
+  hooks:
+  - id: black
+    language_version: python
+- repo: https://github.com/timothycrosley/isort
+  rev: "5.10.1"
+  hooks:
+  - id: isort
